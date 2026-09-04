@@ -1,0 +1,279 @@
+/* =====================================================
+   SECTION RAIL
+===================================================== */
+
+.section-rail {
+  position: fixed;
+
+  left: 0;
+  top: 50%;
+
+  width: 92px;
+  height: 430px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 20;
+
+  /*
+   * Hidden by default while the user is in the hero.
+   */
+  opacity: 0;
+  visibility: hidden;
+
+  transform:
+    translateY(-50%)
+    translateX(-12px);
+
+  pointer-events: none;
+
+  transition:
+    opacity 300ms ease,
+    transform 300ms ease,
+    visibility 300ms ease;
+}
+
+
+/* =====================================================
+   VISIBLE STATE
+===================================================== */
+
+.section-rail-visible {
+  opacity: 1;
+  visibility: visible;
+
+  transform:
+    translateY(-50%)
+    translateX(0);
+}
+
+
+/* =====================================================
+   VERTICAL LINE
+===================================================== */
+
+.section-rail-line {
+  position: absolute;
+
+  left: 26px;
+  top: 18px;
+  bottom: 18px;
+
+  width: 1px;
+
+  background: var(--border-soft);
+
+  pointer-events: none;
+}
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+.section-rail-nav {
+  width: 100%;
+  height: 100%;
+
+  padding: 12px 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  pointer-events: auto;
+}
+
+
+/* =====================================================
+   NAVIGATION ITEM
+===================================================== */
+
+.section-rail-item {
+  position: relative;
+
+  min-height: 70px;
+
+  padding-left: 46px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  gap: 4px;
+
+  color: var(--text-faint);
+  text-decoration: none;
+
+  transition:
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+
+/* =====================================================
+   MARKER
+===================================================== */
+
+.section-rail-marker {
+  position: absolute;
+
+  left: 22px;
+  top: 50%;
+
+  width: 9px;
+  height: 9px;
+
+  transform: translateY(-50%);
+
+  border: 1px solid var(--text-faint);
+  border-radius: 50%;
+
+  background: var(--background);
+
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+
+/* =====================================================
+   NUMBER
+===================================================== */
+
+.section-rail-number {
+  font-family:
+    "Courier New",
+    Courier,
+    monospace;
+
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+
+  color: inherit;
+}
+
+
+/* =====================================================
+   LABEL
+===================================================== */
+
+.section-rail-label {
+  font-family:
+    "Courier New",
+    Courier,
+    monospace;
+
+  font-size: 0.55rem;
+  letter-spacing: 0.12em;
+
+  color: inherit;
+
+  opacity: 0.7;
+
+  transition:
+    color 180ms ease,
+    opacity 180ms ease;
+}
+
+
+/* =====================================================
+   HOVER
+===================================================== */
+
+.section-rail-item:hover {
+  color: var(--text-primary);
+}
+
+.section-rail-item:hover .section-rail-marker {
+  border-color: var(--accent);
+
+  transform:
+    translateY(-50%)
+    scale(1.15);
+}
+
+.section-rail-item:hover .section-rail-label {
+  opacity: 1;
+}
+
+
+/* =====================================================
+   ACTIVE SECTION
+===================================================== */
+
+.section-rail-item-active {
+  color: var(--accent);
+}
+
+.section-rail-item-active .section-rail-marker {
+  background: var(--accent);
+  border-color: var(--accent);
+
+  box-shadow:
+    0 0 0 4px rgba(127, 152, 255, 0.1),
+    0 0 18px rgba(127, 152, 255, 0.2);
+}
+
+.section-rail-item-active .section-rail-number {
+  color: var(--accent);
+}
+
+.section-rail-item-active .section-rail-label {
+  color: var(--text-primary);
+
+  opacity: 1;
+}
+
+
+/* =====================================================
+   LARGE DESKTOP
+===================================================== */
+
+@media (min-width: 1600px) {
+  .section-rail {
+    width: 110px;
+  }
+
+  .section-rail-line {
+    left: 32px;
+  }
+
+  .section-rail-item {
+    padding-left: 54px;
+  }
+
+  .section-rail-marker {
+    left: 28px;
+  }
+}
+
+
+/* =====================================================
+   SMALL DESKTOP / TABLET / MOBILE
+===================================================== */
+
+@media (max-width: 1100px) {
+  .section-rail,
+  .section-rail-visible {
+    display: none;
+  }
+}
+
+
+/* =====================================================
+   REDUCED MOTION
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .section-rail,
+  .section-rail-item,
+  .section-rail-marker,
+  .section-rail-label {
+    transition: none;
+  }
+}

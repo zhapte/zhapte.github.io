@@ -1,0 +1,217 @@
+/* =====================================================
+   RESET
+===================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+
+  background: #141416;
+  color: #f5f5f1;
+
+  font-family:
+    Inter,
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+/* =====================================================
+   ROOT
+===================================================== */
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+
+  overflow-x: hidden;
+}
+
+
+/* =====================================================
+   TYPOGRAPHY
+===================================================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-top: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #f5f5f1;
+
+  font-weight: 700;
+}
+
+p {
+  color: #b8b8bc;
+
+  line-height: 1.7;
+}
+
+strong {
+  color: #f5f5f1;
+}
+
+small {
+  color: #929298;
+}
+
+
+/* =====================================================
+   GLOBAL COLOR SYSTEM
+===================================================== */
+
+:root {
+  --background: #141416;
+  --background-soft: #161618;
+  --background-alt: #1c1c1f;
+  --surface: #202024;
+
+  --text-primary: #f5f5f1;
+  --text-secondary: #b8b8bc;
+  --text-muted: #929298;
+  --text-faint: #77777d;
+
+  --border: #38383d;
+  --border-soft: #303035;
+
+  --accent: #7f98ff;
+  --accent-hover: #9aabff;
+}
+
+
+/* =====================================================
+   SELECTION
+===================================================== */
+
+::selection {
+  background: #7f98ff;
+  color: #141416;
+}
+
+
+/* =====================================================
+   LINKS
+===================================================== */
+
+a {
+  transition:
+    color 180ms ease,
+    opacity 180ms ease;
+}
+
+
+/* =====================================================
+   SHARED SECTION ELEMENTS
+===================================================== */
+
+.section-index {
+  font-family:
+    "Courier New",
+    Courier,
+    monospace;
+
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+
+  color: #7f98ff;
+}
+
+
+/* =====================================================
+   SCROLLBAR
+===================================================== */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #141416;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3a3a40;
+
+  border: 2px solid #141416;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #515158;
+}
+
+
+/* =====================================================
+   ACCESSIBILITY
+===================================================== */
+
+:focus-visible {
+  outline: 2px solid #7f98ff;
+  outline-offset: 5px;
+}
+
+
+/* =====================================================
+   REDUCED MOTION
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

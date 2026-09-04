@@ -1,0 +1,290 @@
+.background-section {
+  padding: 120px 48px;
+
+  background: #0c0c0d;
+  color: #f2f2ed;
+
+  border-bottom: 1px solid #252528;
+}
+
+.background-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+
+/* =====================================================
+   HEADING
+===================================================== */
+
+.background-heading {
+  margin-bottom: 64px;
+
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
+}
+
+.background-heading h2 {
+  margin: 0;
+
+  font-size: clamp(2.4rem, 4.5vw, 4.8rem);
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+
+.background-label {
+  display: block;
+
+  margin-bottom: 24px;
+
+  font-family: monospace;
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+
+  color: #6f8cff;
+}
+
+
+/* =====================================================
+   MAIN GRID
+===================================================== */
+
+.background-grid {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 0.9fr)
+    minmax(0, 1.4fr);
+
+  gap: 90px;
+}
+
+.background-left {
+  padding-right: 60px;
+
+  border-right: 1px solid #29292c;
+}
+
+
+/* =====================================================
+   EDUCATION
+===================================================== */
+
+.education-panel h3 {
+  margin: 0;
+
+  font-size: clamp(3.4rem, 6vw, 6rem);
+  line-height: 0.95;
+  letter-spacing: -0.06em;
+}
+
+.education-program {
+  margin: 22px 0 0;
+
+  color: #a0a0a5;
+
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.education-meta {
+  margin: 12px 0 0;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  color: #66666b;
+
+  font-family: monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+}
+
+.education-meta span {
+  color: #3f3f43;
+}
+
+.education-description {
+  max-width: 420px;
+
+  margin: 26px 0 0;
+
+  color: #747479;
+
+  font-size: 0.88rem;
+  line-height: 1.75;
+}
+
+
+/* =====================================================
+   PROFESSIONAL EXPERIENCE
+===================================================== */
+
+.experience-note {
+  margin-top: 64px;
+  padding-top: 38px;
+
+  border-top: 1px solid #29292c;
+}
+
+.experience-note .background-label {
+  margin-bottom: 18px;
+}
+
+.experience-note p {
+  max-width: 450px;
+
+  margin: 0;
+
+  color: #8b8b90;
+
+  font-size: 0.9rem;
+  line-height: 1.8;
+}
+
+
+/* =====================================================
+   SYSTEM PROFILE
+===================================================== */
+
+.profile-panel {
+  min-width: 0;
+}
+
+.profile-list {
+  border-top: 1px solid #2a2a2e;
+}
+
+.profile-row {
+  min-height: 82px;
+
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+
+  align-items: center;
+
+  gap: 28px;
+
+  border-bottom: 1px solid #2a2a2e;
+}
+
+.profile-row > span {
+  font-family: monospace;
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+
+  color: #66666b;
+}
+
+.profile-row p {
+  margin: 0;
+
+  color: #b0b0b5;
+
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+
+
+/* =====================================================
+   HOVER DETAIL
+===================================================== */
+
+.profile-row {
+  transition:
+    padding-left 180ms ease,
+    background 180ms ease;
+}
+
+.profile-row:hover {
+  padding-left: 12px;
+
+  background: #101012;
+}
+
+.profile-row:hover > span {
+  color: #6f8cff;
+}
+
+
+/* =====================================================
+   RESPONSIVE — TABLET
+===================================================== */
+
+@media (max-width: 900px) {
+
+  .background-section {
+    padding: 100px 28px;
+  }
+
+  .background-grid {
+    grid-template-columns: 1fr;
+
+    gap: 64px;
+  }
+
+  .background-left {
+    padding-right: 0;
+    padding-bottom: 60px;
+
+    border-right: none;
+    border-bottom: 1px solid #29292c;
+  }
+}
+
+
+/* =====================================================
+   RESPONSIVE — MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+  .background-section {
+    padding: 82px 22px;
+  }
+
+  .background-heading {
+    margin-bottom: 50px;
+  }
+
+  .background-grid {
+    gap: 52px;
+  }
+
+  .background-left {
+    padding-bottom: 48px;
+  }
+
+  .education-panel h3 {
+    font-size: clamp(3.5rem, 18vw, 5rem);
+  }
+
+  .education-description {
+    font-size: 0.84rem;
+  }
+
+  .experience-note {
+    margin-top: 48px;
+    padding-top: 32px;
+  }
+
+  .profile-row {
+    min-height: auto;
+
+    grid-template-columns: 1fr;
+
+    gap: 8px;
+
+    padding: 18px 0;
+  }
+
+  .profile-row:hover {
+    padding-left: 0;
+  }
+
+  .profile-row p {
+    font-size: 0.86rem;
+  }
+}
