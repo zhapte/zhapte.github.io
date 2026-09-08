@@ -16,13 +16,15 @@ body {
   margin: 0;
 
   background: #141416;
-  color: #f5f5f1;
+  color: #f7f7f3;
 
   font-family:
     Inter,
     Arial,
     Helvetica,
     sans-serif;
+
+  font-size: 16px;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -83,23 +85,24 @@ h3,
 h4,
 h5,
 h6 {
-  color: #f5f5f1;
+  color: #f7f7f3;
 
   font-weight: 700;
 }
 
 p {
-  color: #b8b8bc;
+  color: #cdcdcf;
 
-  line-height: 1.7;
+  font-size: 1rem;
+  line-height: 1.8;
 }
 
 strong {
-  color: #f5f5f1;
+  color: #f7f7f3;
 }
 
 small {
-  color: #929298;
+  color: #aaaab0;
 }
 
 
@@ -109,20 +112,20 @@ small {
 
 :root {
   --background: #141416;
-  --background-soft: #161618;
-  --background-alt: #1c1c1f;
-  --surface: #202024;
+  --background-soft: #18181b;
+  --background-alt: #202024;
+  --surface: #25252a;
 
-  --text-primary: #f5f5f1;
-  --text-secondary: #b8b8bc;
-  --text-muted: #929298;
-  --text-faint: #77777d;
+  --text-primary: #f7f7f3;
+  --text-secondary: #cdcdcf;
+  --text-muted: #aaaab0;
+  --text-faint: #909097;
 
-  --border: #38383d;
-  --border-soft: #303035;
+  --border: #404046;
+  --border-soft: #35353a;
 
-  --accent: #7f98ff;
-  --accent-hover: #9aabff;
+  --accent: #8fa4ff;
+  --accent-hover: #a8b7ff;
 }
 
 
@@ -131,8 +134,8 @@ small {
 ===================================================== */
 
 ::selection {
-  background: #7f98ff;
-  color: #141416;
+  background: var(--accent);
+  color: var(--background);
 }
 
 
@@ -157,10 +160,58 @@ a {
     Courier,
     monospace;
 
-  font-size: 0.7rem;
-  letter-spacing: 0.12em;
+  font-size: 0.74rem;
+  letter-spacing: 0.1em;
 
-  color: #7f98ff;
+  color: var(--accent);
+}
+
+
+/* =====================================================
+   READABILITY
+===================================================== */
+
+/*
+  Keep technical labels compact, but avoid making
+  important information too small to read comfortably.
+*/
+
+.project-description,
+.selected-work-intro {
+  font-size: 1rem;
+  line-height: 1.85;
+}
+
+.hauler-contribution > p,
+.confidential-details > p {
+  font-size: 0.9rem;
+  line-height: 1.8;
+}
+
+.goodbooks-review p {
+  font-size: 0.86rem;
+  line-height: 1.8;
+}
+
+.project-type,
+.project-year,
+.artifact-eyebrow,
+.project-tags span,
+.goodbooks-review-meta span,
+.system-box-label,
+.branch-label,
+.dashboard-label,
+.pipeline-number {
+  font-size: 0.5rem;
+}
+
+.system-box small,
+.pipeline-step small,
+.confidential-feature-grid small,
+.dashboard-header small,
+.dashboard-kpis small {
+  font-size: 0.58rem;
+  line-height: 1.5;
 }
 
 
@@ -173,17 +224,17 @@ a {
 }
 
 ::-webkit-scrollbar-track {
-  background: #141416;
+  background: var(--background);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #3a3a40;
+  background: #45454b;
 
-  border: 2px solid #141416;
+  border: 2px solid var(--background);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #515158;
+  background: #5a5a62;
 }
 
 
@@ -192,7 +243,7 @@ a {
 ===================================================== */
 
 :focus-visible {
-  outline: 2px solid #7f98ff;
+  outline: 2px solid var(--accent);
   outline-offset: 5px;
 }
 

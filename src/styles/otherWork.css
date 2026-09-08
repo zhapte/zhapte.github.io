@@ -539,3 +539,36 @@
     transition: none;
   }
 }
+
+/* =========================================================
+   READABILITY PASS
+   ========================================================= */
+
+.other-work p,
+.other-work-description,
+.other-work-details p,
+.other-work-content p {
+  font-size: 0.98rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+}
+
+.other-work-type,
+.other-work-year,
+.other-work-meta,
+.other-work-tags span,
+.other-work-label {
+  font-size: 0.5rem;
+  color: var(--text-muted);
+}
+
+.other-work h3,
+.other-work h4 {
+  line-height: 1.1;
+}
+
+.other-work small {
+  font-size: 0.58rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+}

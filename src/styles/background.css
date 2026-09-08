@@ -288,3 +288,33 @@
     font-size: 0.86rem;
   }
 }
+
+/* =========================================================
+   READABILITY PASS
+   ========================================================= */
+
+.background p,
+.background-description,
+.background-content p,
+.background-copy p,
+.background-details p {
+  font-size: 0.98rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+}
+
+.background-meta,
+.background-label,
+.background-type,
+.background-year,
+.background-tags span,
+.background small {
+  font-size: 0.58rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.background h3,
+.background h4 {
+  line-height: 1.1;
+}

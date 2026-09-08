@@ -195,3 +195,34 @@
     border-bottom: none;
   }
 }
+
+/* =========================================================
+   READABILITY PASS
+   ========================================================= */
+
+.contact p,
+.contact-description,
+.contact-content p,
+.contact-copy p {
+  font-size: 0.98rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+}
+
+.contact-meta,
+.contact-label,
+.contact-type,
+.contact small {
+  font-size: 0.58rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.contact a {
+  line-height: 1.5;
+}
+
+.contact h3,
+.contact h4 {
+  line-height: 1.1;
+}
