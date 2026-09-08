@@ -5,10 +5,10 @@ const projects = [
   {
     number: "01",
     title: "Hauler",
+    route: "/projects/hauler",
     type: "REAL-TIME / MOBILE SYSTEMS",
-    year: "2026",
     description:
-      "Built full-stack features for a two-sided hauling marketplace, including authenticated real-time messaging and connected job workflows across the React Native client and Node.js backend.",
+      "A two-sided hauling marketplace with authenticated, job-scoped real-time messaging across a React Native client and Node.js backend.",
     tags: [
       "React Native",
       "Node.js",
@@ -16,16 +16,16 @@ const projects = [
       "GraphQL",
       "Socket.IO",
     ],
-    route: "/projects/hauler",
-    variant: "hauler",
+    preview: "hauler",
+    className: "project-hauler",
   },
   {
     number: "02",
     title: "Confidential Project",
+    route: "/projects/confidential",
     type: "FULL-STACK / ASYNC MESSAGING",
-    year: "2026",
     description:
-      "Designed and developed parts of an asynchronous user-to-staff messaging experience for a privacy-conscious full-stack web application, with conversations persisted through a REST-backed workflow rather than real-time sockets.",
+      "A confidential full-stack platform where I contributed to persistent user-to-staff messaging, conversation search, read state, pagination, and supporting authentication workflows.",
     tags: [
       "React",
       "Django",
@@ -33,16 +33,16 @@ const projects = [
       "PostgreSQL",
       "REST API",
     ],
-    route: "/projects/confidential",
-    variant: "confidential",
+    preview: "confidential",
+    className: "project-confidential",
   },
   {
     number: "03",
     title: "GoodBooks",
+    route: "/projects/goodbooks",
     type: "OPEN SOURCE / FULL-STACK FEATURE",
-    year: "PR #240",
     description:
-      "Built an end-to-end accounting dashboard feature inside an existing open-source application, from backend data aggregation through the MVC interface.",
+      "An open-source dashboard feature implemented end-to-end across DTOs, service logic, API, MVC presentation, database-backed data, and maintainer review.",
     tags: [
       ".NET",
       "MVC",
@@ -51,425 +51,421 @@ const projects = [
       "Service Layer",
       "Database",
     ],
-    route: "/projects/goodbooks",
-    variant: "goodbooks",
+    preview: "goodbooks",
+    className: "project-goodbooks",
+    github:
+      "https://github.com/medhatelmasry/GoodBooks/pull/240",
   },
 ];
 
 function SelectedWork() {
   return (
     <section className="selected-work" id="work">
-      <div className="selected-work-heading">
-        <div className="selected-work-heading-main">
-          <span className="section-index">01</span>
-          <h2>Selected Work</h2>
+      <div className="selected-work-inner">
+        <div className="selected-work-header">
+          <div className="selected-work-index">
+            <span className="section-index">01</span>
+            <span>SELECTED WORK</span>
+          </div>
+
+          <div className="selected-work-heading">
+            <p>PROJECTS / CASE STUDIES</p>
+
+            <h2>
+              Selected
+              <span> work.</span>
+            </h2>
+
+            <p className="selected-work-intro">
+              A few projects that best represent how I approach
+              software engineering across systems, full-stack
+              development, and real-world product problems.
+            </p>
+          </div>
         </div>
 
-        <p>
-          Projects where I contributed across real application layers — from
-          interface design and workflow logic to APIs, persistence, and
-          real-time systems.
-        </p>
-      </div>
-
-      <div className="project-list">
-        {projects.map((project) => (
-          <ProjectEntry key={project.route} project={project} />
-        ))}
+        <div className="project-list">
+          {projects.map((project) => (
+            <ProjectEntry
+              key={project.number}
+              project={project}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );
 }
 
+
+/* =========================================================
+   PROJECT ENTRY
+   ========================================================= */
+
 function ProjectEntry({ project }) {
   return (
-    <Link
-      to={project.route}
-      className={`project-entry project-${project.variant}`}
-      aria-label={`View ${project.title} case study`}
+    <article
+      className={`project-entry ${project.className}`}
     >
-      <div className="project-index">
+      {/*
+        This invisible Link makes the card itself clickable.
+
+        The action links below sit above it with a higher z-index,
+        which allows GoodBooks to have its own external PR link
+        without nesting links.
+      */}
+      <Link
+        to={project.route}
+        className="project-entry-main-link"
+        aria-label={`View ${project.title} case study`}
+      />
+
+      <div className="project-number">
         <span>{project.number}</span>
       </div>
 
-      <div className="project-main">
-        <div className="project-heading">
-          <div>
-            <span className="project-type">{project.type}</span>
-            <h3>{project.title}</h3>
+      <div className="project-body">
+        <div className="project-copy">
+          <div className="project-type">
+            {project.type}
           </div>
 
-          <span className="project-year">{project.year}</span>
-        </div>
+          <h3>{project.title}</h3>
 
-        <p className="project-description">{project.description}</p>
+          <p className="project-description">
+            {project.description}
+          </p>
 
-        <div className="project-artifact">
-          {project.variant === "hauler" && <HaulerPreview />}
-          {project.variant === "confidential" && <ConfidentialPreview />}
-          {project.variant === "goodbooks" && <GoodBooksPreview />}
-        </div>
-
-        <div className="project-footer">
           <div className="project-tags">
             {project.tags.map((tag) => (
               <span key={tag}>{tag}</span>
             ))}
           </div>
 
-          <span className="project-link">
-            View Case
-            <span aria-hidden="true">↗</span>
-          </span>
+          <div className="project-actions">
+            <Link
+              to={project.route}
+              className="project-link"
+            >
+              <span>View Case</span>
+              <span aria-hidden="true">→</span>
+            </Link>
+
+            {project.github && (
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noreferrer"
+                className="project-github-link"
+                aria-label="View GoodBooks pull request on GitHub"
+              >
+                <span>View PR</span>
+                <span aria-hidden="true">↗</span>
+              </a>
+            )}
+          </div>
+        </div>
+
+        <div className="project-artifact">
+          {project.preview === "hauler" && (
+            <HaulerPreview />
+          )}
+
+          {project.preview === "confidential" && (
+            <ConfidentialPreview />
+          )}
+
+          {project.preview === "goodbooks" && (
+            <GoodBooksPreview />
+          )}
         </div>
       </div>
-    </Link>
+    </article>
   );
 }
+
+
+/* =========================================================
+   HAULER PREVIEW
+   ========================================================= */
 
 function HaulerPreview() {
   return (
-    <div className="hauler-preview">
+    <div className="artifact artifact-hauler">
       <div className="artifact-topbar">
-        <span>SYSTEM FLOW</span>
-        <span>REAL-TIME COMMUNICATION</span>
+        <span>HAULER / SYSTEM</span>
+        <span>REAL-TIME</span>
       </div>
 
-      <div className="hauler-layout">
-        <div className="hauler-system">
-          <div className="hauler-system-row">
-            <div className="system-box system-box-wide">
-              <span className="system-box-label">MOBILE CLIENT</span>
-              <strong>React Native</strong>
-              <small>Customer / Provider</small>
-            </div>
-          </div>
+      <div className="hauler-architecture">
+        <ArchitectureNode
+          label="CLIENT"
+          title="React Native"
+        />
 
-          <div className="system-arrow">
-            <span>REST + FIREBASE TOKEN</span>
-          </div>
+        <ArchitectureConnector label="REST + TOKEN" />
 
-          <div className="hauler-system-row">
-            <div className="system-box system-box-wide system-box-accent">
-              <span className="system-box-label">APPLICATION API</span>
-              <strong>Express</strong>
-              <small>Auth · Jobs · Chat</small>
-            </div>
+        <ArchitectureNode
+          label="SERVER"
+          title="Express"
+          accent
+        />
+
+        <div className="hauler-branches">
+          <div className="hauler-branch">
+            <span>GRAPHQL</span>
+            <div />
+
+            <ArchitectureNode
+              label="DATA"
+              title="Firebase Data Connect"
+              small
+            />
           </div>
 
           <div className="hauler-branch">
-            <div className="hauler-branch-path">
-              <span className="branch-label">GRAPHQL</span>
-              <span className="branch-line" />
+            <span>SOCKET.IO</span>
+            <div />
 
-              <div className="system-box">
-                <strong>Firebase Data Connect</strong>
-                <small>GraphQL Data Layer</small>
-              </div>
-            </div>
-
-            <div className="hauler-branch-path">
-              <span className="branch-label">SOCKET.IO</span>
-              <span className="branch-line" />
-
-              <div className="system-box">
-                <strong>Live Chat</strong>
-                <small>Real-Time Events</small>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="hauler-contribution">
-          <span className="artifact-eyebrow">
-            PRIMARY CONTRIBUTION
-          </span>
-
-          <h4>Secure, job-scoped messaging.</h4>
-
-          <p>
-            Messages were persisted through the API first, then delivered over
-            authenticated Socket.IO channels tied to accepted job assignments.
-          </p>
-
-          <div className="hauler-points">
-            <span>Firebase authentication</span>
-            <span>Participant authorization</span>
-            <span>Persist then broadcast</span>
-            <span>Query-cache updates</span>
+            <ArchitectureNode
+              label="LIVE"
+              title="Job-Scoped Chat"
+              small
+            />
           </div>
         </div>
       </div>
 
-      <div className="artifact-metrics">
-        <Metric value="54" label="COMMITS" />
-        <Metric value="37" label="IMPLEMENTATION" />
-        <Metric value="15" label="CHAT COMMITS" />
+      <div className="artifact-contribution">
+        <span>MY CONTRIBUTION</span>
 
-        <div className="artifact-period">
-          <span>MAY 01</span>
-          <div className="period-line" />
-          <span>MAY 18 · 2026</span>
-        </div>
+        <strong>
+          Secure job-scoped messaging across mobile,
+          backend, persistence, and socket layers.
+        </strong>
+      </div>
+
+      <div className="artifact-metrics">
+        <ArtifactMetric
+          value="54"
+          label="COMMITS"
+        />
+
+        <ArtifactMetric
+          value="37"
+          label="IMPLEMENTATION"
+        />
+
+        <ArtifactMetric
+          value="15"
+          label="CHAT COMMITS"
+        />
       </div>
     </div>
   );
 }
+
+
+/* =========================================================
+   CONFIDENTIAL PREVIEW
+   ========================================================= */
 
 function ConfidentialPreview() {
   return (
-    <div className="confidential-preview">
+    <div className="artifact artifact-confidential">
       <div className="artifact-topbar">
-        <span>CONFIDENTIAL // TECHNICAL DETAILS ONLY</span>
-        <span>ASYNCHRONOUS MESSAGING</span>
+        <span>RESTRICTED CASE</span>
+        <span>ASYNC MESSAGING</span>
       </div>
 
-      <div className="confidential-layout">
+      <div className="confidential-window">
+        <div className="confidential-sidebar">
+          <div className="confidential-search">
+            <span />
+          </div>
+
+          <ConversationRow active />
+          <ConversationRow />
+          <ConversationRow />
+          <ConversationRow />
+        </div>
+
         <div className="confidential-thread">
-          <div className="thread-header">
+          <div className="confidential-thread-header">
             <div>
-              <span>CONVERSATION</span>
-              <small>USER ↔ STAFF</small>
+              <span />
+              <span />
             </div>
 
-            <div className="thread-search">
-              <span>⌕</span>
-              <span>SEARCH</span>
-            </div>
+            <small>ACTIVITY</small>
           </div>
 
-          <div className="thread-body">
-            <div className="thread-message thread-message-user">
-              <span className="thread-role">USER</span>
+          <MessageBubble width="68%" />
+          <MessageBubble
+            width="54%"
+            right
+          />
+          <MessageBubble width="76%" />
 
-              <div className="thread-lines">
-                <span />
-                <span />
-              </div>
-            </div>
-
-            <div className="thread-message thread-message-staff">
-              <span className="thread-role">STAFF</span>
-
-              <div className="thread-lines">
-                <span />
-                <span />
-                <span />
-              </div>
-
-              <span className="thread-read">READ ✓</span>
-            </div>
-
-            <div className="thread-message thread-message-user thread-message-highlight">
-              <span className="thread-role">USER</span>
-
-              <div className="thread-lines">
-                <span />
-                <span />
-              </div>
-
-              <span className="thread-match">SEARCH MATCH</span>
-            </div>
+          <div className="confidential-compose">
+            <span />
+            <strong>→</strong>
           </div>
         </div>
+      </div>
 
-        <div className="confidential-details">
-          <span className="artifact-eyebrow">
-            MESSAGING UX + FULL STACK
-          </span>
-
-          <h4>Asynchronous user-to-staff communication.</h4>
-
-          <p>
-            Helped design and develop a persistent messaging experience where
-            users could leave messages for staff to review and respond to.
-            Updates were handled through REST requests rather than WebSockets
-            or other real-time infrastructure.
-          </p>
-
-          <div className="confidential-feature-grid">
-            <div>
-              <span>01</span>
-              <strong>SEARCH</strong>
-              <small>Jump directly to matching messages</small>
-            </div>
-
-            <div>
-              <span>02</span>
-              <strong>READ STATE</strong>
-              <small>Persisted timestamps and unread state</small>
-            </div>
-
-            <div>
-              <span>03</span>
-              <strong>PAGINATION</strong>
-              <small>Consistent message ordering</small>
-            </div>
-
-            <div>
-              <span>04</span>
-              <strong>ACTIVITY</strong>
-              <small>Recent conversations move upward</small>
-            </div>
-          </div>
-        </div>
+      <div className="confidential-features">
+        <span>SEARCH</span>
+        <span>READ STATE</span>
+        <span>PAGINATION</span>
+        <span>ACTIVITY</span>
       </div>
 
       <div className="artifact-metrics">
-        <Metric value="38" label="COMMITS" />
-        <Metric value="27" label="DIRECT" />
-        <Metric value="11" label="INTEGRATION" />
+        <ArtifactMetric
+          value="38"
+          label="COMMITS"
+        />
 
-        <div className="artifact-period">
-          <span>FEB</span>
-          <div className="period-line" />
-          <span>APR · 2026</span>
-        </div>
+        <ArtifactMetric
+          value="27"
+          label="DIRECT"
+        />
+
+        <ArtifactMetric
+          value="11"
+          label="INTEGRATION"
+        />
       </div>
     </div>
   );
 }
+
+
+/* =========================================================
+   GOODBOOKS PREVIEW
+   ========================================================= */
 
 function GoodBooksPreview() {
   return (
-    <div className="goodbooks-preview">
+    <div className="artifact artifact-goodbooks">
       <div className="artifact-topbar">
-        <span>OPEN SOURCE CONTRIBUTION</span>
-
-        <div className="goodbooks-status">
-          <span className="status-dot" />
-          <span>MERGED</span>
-        </div>
+        <span>GOODBOOKS / PR #240</span>
+        <span>MERGED ✓</span>
       </div>
 
-      <div className="goodbooks-layout">
-        <div className="goodbooks-pipeline">
-          <div className="pipeline-step">
-            <span className="pipeline-number">01</span>
+      <div className="goodbooks-flow">
+        <FlowNode
+          number="01"
+          label="DTO"
+        />
 
-            <div>
-              <strong>DTO</strong>
-              <small>Dashboard data contracts</small>
-            </div>
-          </div>
+        <FlowArrow />
 
-          <div className="pipeline-connector" />
+        <FlowNode
+          number="02"
+          label="SERVICE"
+        />
 
-          <div className="pipeline-step">
-            <span className="pipeline-number">02</span>
+        <FlowArrow />
 
-            <div>
-              <strong>SERVICE</strong>
-              <small>Aggregate application data</small>
-            </div>
-          </div>
+        <FlowNode
+          number="03"
+          label="API"
+        />
 
-          <div className="pipeline-connector" />
+        <FlowArrow />
 
-          <div className="pipeline-step">
-            <span className="pipeline-number">03</span>
-
-            <div>
-              <strong>API</strong>
-              <small>Dashboard endpoint</small>
-            </div>
-          </div>
-
-          <div className="pipeline-connector" />
-
-          <div className="pipeline-step pipeline-step-accent">
-            <span className="pipeline-number">04</span>
-
-            <div>
-              <strong>MVC DASHBOARD</strong>
-              <small>User-facing feature</small>
-            </div>
-          </div>
-        </div>
-
-        <div className="goodbooks-dashboard">
-          <div className="dashboard-header">
-            <div>
-              <span>DASHBOARD</span>
-              <small>DATABASE-BACKED</small>
-            </div>
-
-            <span className="dashboard-pr">PR #240</span>
-          </div>
-
-          <div className="dashboard-kpis">
-            <div>
-              <small>RECEIVABLES</small>
-              <span />
-            </div>
-
-            <div>
-              <small>PAYABLES</small>
-              <span />
-            </div>
-
-            <div>
-              <small>BANK</small>
-              <span />
-            </div>
-          </div>
-
-          <div className="dashboard-content">
-            <div className="dashboard-chart">
-              <span className="dashboard-label">
-                MONTHLY ACTIVITY
-              </span>
-
-              <div className="chart-bars">
-                <span />
-                <span />
-                <span />
-                <span />
-                <span />
-                <span />
-                <span />
-              </div>
-            </div>
-
-            <div className="dashboard-list">
-              <span className="dashboard-label">
-                RECENT ACTIVITY
-              </span>
-
-              <div />
-              <div />
-              <div />
-              <div />
-            </div>
-          </div>
-        </div>
+        <FlowNode
+          number="04"
+          label="MVC"
+        />
       </div>
 
       <div className="goodbooks-review">
-        <div>
-          <span className="artifact-eyebrow">
-            MAINTAINER REVIEW
-          </span>
-
-          <p>
-            Verified that dashboard values were driven by actual database state
-            and provided concrete scenarios for validating invoices, payments,
-            receivables, payables, and monthly chart updates.
-          </p>
+        <div className="goodbooks-review-heading">
+          <span>OPEN SOURCE CONTRIBUTION</span>
+          <strong>PR #240</strong>
         </div>
 
-        <div className="goodbooks-review-meta">
-          <span>4 COMMITS</span>
-          <span>DIFFICULTY: HIGH</span>
-          <span>APPROVED</span>
-          <span>MERGED ✓</span>
+        <div className="goodbooks-review-row">
+          <span>FEATURE</span>
+          <strong>
+            Dashboard
+          </strong>
+        </div>
+
+        <div className="goodbooks-review-row">
+          <span>DATA</span>
+          <strong>
+            Database-backed
+          </strong>
+        </div>
+
+        <div className="goodbooks-review-row">
+          <span>REVIEW</span>
+          <strong>
+            Maintainer approved
+          </strong>
+        </div>
+
+        <div className="goodbooks-review-row goodbooks-review-merged">
+          <span>STATUS</span>
+          <strong>
+            MERGED ✓
+          </strong>
         </div>
       </div>
     </div>
   );
 }
 
-function Metric({ value, label }) {
+
+/* =========================================================
+   SMALL ARTIFACT COMPONENTS
+   ========================================================= */
+
+function ArchitectureNode({
+  label,
+  title,
+  accent = false,
+  small = false,
+}) {
+  return (
+    <div
+      className={[
+        "architecture-node",
+        accent
+          ? "architecture-node-accent"
+          : "",
+        small
+          ? "architecture-node-small"
+          : "",
+      ]
+        .filter(Boolean)
+        .join(" ")}
+    >
+      <span>{label}</span>
+      <strong>{title}</strong>
+    </div>
+  );
+}
+
+
+function ArchitectureConnector({ label }) {
+  return (
+    <div className="architecture-connector">
+      <span>{label}</span>
+      <div />
+    </div>
+  );
+}
+
+
+function ArtifactMetric({
+  value,
+  label,
+}) {
   return (
     <div className="artifact-metric">
       <strong>{value}</strong>
@@ -477,5 +473,69 @@ function Metric({ value, label }) {
     </div>
   );
 }
+
+
+function ConversationRow({
+  active = false,
+}) {
+  return (
+    <div
+      className={`conversation-row ${
+        active ? "conversation-row-active" : ""
+      }`}
+    >
+      <span />
+
+      <div>
+        <span />
+        <span />
+      </div>
+    </div>
+  );
+}
+
+
+function MessageBubble({
+  width,
+  right = false,
+}) {
+  return (
+    <div
+      className={`message-bubble ${
+        right ? "message-bubble-right" : ""
+      }`}
+      style={{ width }}
+    >
+      <span />
+      <span />
+    </div>
+  );
+}
+
+
+function FlowNode({
+  number,
+  label,
+}) {
+  return (
+    <div className="goodbooks-flow-node">
+      <span>{number}</span>
+      <strong>{label}</strong>
+    </div>
+  );
+}
+
+
+function FlowArrow() {
+  return (
+    <span
+      className="goodbooks-flow-arrow"
+      aria-hidden="true"
+    >
+      →
+    </span>
+  );
+}
+
 
 export default SelectedWork;
