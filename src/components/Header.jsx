@@ -9,15 +9,15 @@ function Header() {
       </Link>
 
       <nav className="site-nav" aria-label="Main navigation">
-        <a href="#work">Work</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
+        <Link to="/#work">Work</Link>
+        <Link to="/#about">About</Link>
+        <Link to="/#contact">Contact</Link>
       </nav>
 
-      <a href="#contact" className="availability">
+      <Link to="/#contact" className="availability">
         <span className="availability-dot" />
         Available
-      </a>
+      </Link>
     </header>
   );
 }
