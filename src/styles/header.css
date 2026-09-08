@@ -36,7 +36,7 @@
 .site-nav a {
   position: relative;
 
-  color: #a6a6a0;
+  color: var(--text-muted);
   text-decoration: none;
 
   font-size: 0.8rem;
@@ -82,11 +82,11 @@
   align-items: center;
   gap: 9px;
 
-  color: #a6a6a0;
+  color: var(--text-muted);
   text-decoration: none;
 
   font-family: monospace;
-  font-size: 0.72rem;
+  font-size: 0.76rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }

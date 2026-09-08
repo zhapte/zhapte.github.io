@@ -224,6 +224,10 @@
   background: var(--background-soft);
 }
 
+.project-section:nth-of-type(odd) {
+  background: var(--background);
+}
+
 .project-section-index {
   padding-top: 8px;
   display: flex;
@@ -823,7 +827,7 @@
   max-width: 1600px;
   margin: 0 auto;
   padding: 115px 64px 130px;
-  background: var(--background-alt);
+  background: var(--background-soft);
 }
 
 .next-project-index {
@@ -1624,5 +1628,139 @@
 
   .goodbooks-review-status strong {
     grid-column: 2;
+  }
+}
+
+/* =========================================================
+   READABILITY
+   ========================================================= */
+
+.project-page p,
+.project-page li {
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.project-page-lead {
+  font-size: clamp(1.08rem, 1.4vw, 1.22rem);
+  line-height: 1.75;
+}
+
+.project-label,
+.project-page-eyebrow,
+.project-page-hero-meta,
+.project-page-hero-stack span,
+.project-section-number,
+.project-section-label,
+.project-stack-item span,
+.architecture-topbar,
+.goodbooks-dashboard-topbar small,
+.goodbooks-pr-badge,
+.goodbooks-dashboard-kpi > span,
+.goodbooks-review-status > div > span,
+.goodbooks-review-status small,
+.goodbooks-review-status strong,
+.goodbooks-commit-number,
+.goodbooks-commit-status {
+  font-size: max(0.68rem, 11px);
+  line-height: 1.5;
+}
+
+.project-card p,
+.project-callout p,
+.project-copy p,
+.decision-card p,
+.feature-card p,
+.goodbooks-review-summary p {
+  color: var(--text-secondary);
+}
+
+@media (max-width: 600px) {
+  .project-page p,
+  .project-page li {
+    font-size: 0.96rem;
+  }
+}
+
+/* Full case-study artifacts: labels convey real system information. */
+.architecture-card,
+.message-flow,
+.goodbooks-dashboard-artifact,
+.goodbooks-review-layout,
+.goodbooks-commit-list {
+  --artifact-label: max(0.7rem, 11px);
+  --artifact-detail: max(0.76rem, 12px);
+}
+
+.architecture-topbar,
+.system-node-eyebrow,
+.system-arrow span,
+.architecture-branch-label,
+.project-feature-number,
+.message-flow-topbar,
+.message-flow-step > span,
+.message-flow-step strong,
+.goodbooks-dashboard-topbar small,
+.goodbooks-pr-badge,
+.goodbooks-dashboard-kpi > span,
+.goodbooks-activity-row > span,
+.goodbooks-review-status > div > span,
+.goodbooks-review-status small,
+.goodbooks-review-status strong,
+.goodbooks-commit-number,
+.goodbooks-commit-status {
+  font-size: var(--artifact-label, max(0.7rem, 11px));
+  line-height: 1.5;
+}
+
+.system-node small,
+.message-flow-step p,
+.project-feature-card p,
+.goodbooks-review-summary p {
+  font-size: var(--artifact-detail, max(0.76rem, 12px));
+  line-height: 1.65;
+}
+
+.system-node small,
+.system-node-eyebrow,
+.system-arrow span,
+.architecture-topbar,
+.message-flow-topbar,
+.goodbooks-dashboard-topbar small,
+.goodbooks-review-status small,
+.goodbooks-commit-status {
+  color: var(--text-muted);
+}
+
+.system-node strong {
+  font-size: 1.05rem;
+  line-height: 1.3;
+}
+
+.project-feature-card strong,
+.message-flow-step strong,
+.goodbooks-review-status strong {
+  font-size: max(0.76rem, 12px);
+}
+
+@media (max-width: 600px) {
+  .architecture-card,
+  .message-flow,
+  .goodbooks-dashboard-artifact,
+  .goodbooks-review-layout,
+  .goodbooks-commit-list {
+    --artifact-label: 0.7rem;
+    --artifact-detail: 0.78rem;
+  }
+
+  .architecture-topbar {
+    min-height: 54px;
+    gap: 8px;
+  }
+
+  .system-arrow span {
+    max-width: 42%;
+    white-space: normal;
+    line-height: 1.35;
   }
 }

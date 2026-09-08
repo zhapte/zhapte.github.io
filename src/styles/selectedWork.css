@@ -1922,3 +1922,122 @@
     transition: none;
   }
 }
+
+/* Readability: keep supporting copy and functional labels comfortable. */
+.selected-work-heading > p,
+.project-description {
+  font-size: 1rem;
+}
+
+.project-type,
+.project-year,
+.artifact-topbar,
+.artifact-eyebrow,
+.project-tags span,
+.project-pr-eyebrow,
+.goodbooks-review-meta span {
+  font-size: max(0.68rem, 11px);
+  line-height: 1.5;
+}
+
+.system-box-label,
+.branch-label,
+.pipeline-number,
+.dashboard-label,
+.system-box small,
+.pipeline-step small,
+.confidential-feature-grid small,
+.dashboard-header small,
+.dashboard-kpis small {
+  font-size: max(0.62rem, 10px);
+  line-height: 1.5;
+}
+
+@media (max-width: 430px) {
+  .project-description {
+    font-size: 0.95rem;
+  }
+}
+
+/* Mockup typography is functional content and must remain legible. */
+.project-artifact {
+  --mockup-label: max(0.65rem, 10.5px);
+  --mockup-detail: max(0.72rem, 11.5px);
+}
+
+.artifact-topbar,
+.artifact-eyebrow,
+.system-box-label,
+.system-box > span,
+.branch-label,
+.hauler-points span,
+.artifact-metric span,
+.artifact-period > span,
+.thread-header > div:first-child > span,
+.thread-header small,
+.thread-search,
+.thread-message > span,
+.thread-time,
+.thread-match,
+.confidential-feature-grid > div > span,
+.confidential-feature-grid strong,
+.pipeline-number,
+.pipeline-step strong,
+.dashboard-header > div > span,
+.dashboard-header small,
+.dashboard-pr,
+.dashboard-kpis small,
+.dashboard-label,
+.goodbooks-review-meta span {
+  font-size: var(--mockup-label);
+  line-height: 1.45;
+}
+
+.system-box strong {
+  font-size: 0.82rem;
+}
+
+.system-box small,
+.pipeline-step small,
+.confidential-feature-grid small {
+  font-size: var(--mockup-detail);
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+
+.hauler-contribution > p,
+.confidential-details > p,
+.goodbooks-review p {
+  font-size: 0.9rem;
+  line-height: 1.75;
+}
+
+.artifact-topbar,
+.artifact-metric span,
+.artifact-period > span,
+.system-box-label,
+.system-box > span,
+.thread-header small,
+.thread-time,
+.dashboard-header small,
+.dashboard-kpis small,
+.dashboard-label {
+  color: var(--text-muted);
+}
+
+.system-box,
+.pipeline-step,
+.confidential-feature-grid > div {
+  gap: 7px;
+}
+
+@media (max-width: 600px) {
+  .project-artifact {
+    --mockup-label: 0.68rem;
+    --mockup-detail: 0.74rem;
+  }
+
+  .artifact-topbar {
+    gap: 7px;
+  }
+}

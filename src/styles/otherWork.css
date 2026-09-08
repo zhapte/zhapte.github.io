@@ -4,8 +4,9 @@
 
 .other-work {
   padding: 120px 48px;
-  background: var(--background-alt);
+  background: var(--background);
   color: var(--text-primary);
+  border-bottom: 1px solid var(--border-soft);
 }
 
 .other-work-heading {
@@ -538,6 +539,26 @@
   .other-project-summary h3 {
     transition: none;
   }
+}
+
+/* Readability: summaries are content, not decorative metadata. */
+.other-work-heading > p,
+.other-project-summary > p,
+.other-project-overview > p,
+.other-project-engineering-card p,
+.other-project-note p {
+  font-size: 0.98rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+}
+
+.other-project-type,
+.other-project-number,
+.other-project-stack-preview span,
+.other-project-label,
+.other-project-stack span {
+  font-size: max(0.68rem, 11px);
+  line-height: 1.45;
 }
 
 /* =========================================================

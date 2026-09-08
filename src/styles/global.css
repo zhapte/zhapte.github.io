@@ -10,6 +10,7 @@
 
 html {
   scroll-behavior: smooth;
+  font-size: 17px;
 }
 
 body {
@@ -91,7 +92,8 @@ h6 {
 }
 
 p {
-  color: #cdcdcf;
+  max-width: 72ch;
+  color: var(--text-secondary);
 
   font-size: 1rem;
   line-height: 1.8;
@@ -102,7 +104,21 @@ strong {
 }
 
 small {
-  color: #aaaab0;
+  color: var(--text-muted);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+p,
+li {
+  text-wrap: pretty;
 }
 
 
@@ -117,9 +133,9 @@ small {
   --surface: #25252a;
 
   --text-primary: #f7f7f3;
-  --text-secondary: #cdcdcf;
-  --text-muted: #aaaab0;
-  --text-faint: #909097;
+  --text-secondary: #d7d7d9;
+  --text-muted: #b8b8bd;
+  --text-faint: #a2a2a9;
 
   --border: #404046;
   --border-soft: #35353a;
@@ -147,6 +163,7 @@ a {
   transition:
     color 180ms ease,
     opacity 180ms ease;
+  text-underline-offset: 0.18em;
 }
 
 
@@ -245,6 +262,12 @@ a {
 :focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 5px;
+}
+
+@media (max-width: 600px) {
+  html {
+    font-size: 16px;
+  }
 }
 
 

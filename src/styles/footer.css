@@ -1,10 +1,10 @@
 .site-footer {
   padding: 28px 48px;
 
-  background: #0c0c0d;
-  color: #55555a;
+  background: var(--background-soft);
+  color: var(--text-muted);
 
-  border-top: 1px solid #242427;
+  border-top: 1px solid var(--border-soft);
 }
 
 .site-footer-inner {
@@ -16,7 +16,7 @@
   align-items: center;
 
   font-family: monospace;
-  font-size: 0.62rem;
+  font-size: 0.7rem;
   letter-spacing: 0.12em;
 }
 

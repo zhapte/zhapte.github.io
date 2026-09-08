@@ -1,10 +1,10 @@
 .background-section {
   padding: 120px 48px;
 
-  background: #0c0c0d;
+  background: var(--background-soft);
   color: #f2f2ed;
 
-  border-bottom: 1px solid #252528;
+  border-bottom: 1px solid var(--border-soft);
 }
 
 .background-inner {
@@ -63,7 +63,7 @@
 .background-left {
   padding-right: 60px;
 
-  border-right: 1px solid #29292c;
+  border-right: 1px solid var(--border-soft);
 }
 
 
@@ -82,7 +82,7 @@
 .education-program {
   margin: 22px 0 0;
 
-  color: #a0a0a5;
+  color: var(--text-muted);
 
   font-size: 1rem;
   line-height: 1.6;
@@ -95,7 +95,7 @@
   flex-wrap: wrap;
   gap: 8px;
 
-  color: #66666b;
+  color: var(--text-faint);
 
   font-family: monospace;
   font-size: 0.7rem;
@@ -111,9 +111,9 @@
 
   margin: 26px 0 0;
 
-  color: #747479;
+  color: var(--text-secondary);
 
-  font-size: 0.88rem;
+  font-size: 1rem;
   line-height: 1.75;
 }
 
@@ -126,7 +126,7 @@
   margin-top: 64px;
   padding-top: 38px;
 
-  border-top: 1px solid #29292c;
+  border-top: 1px solid var(--border-soft);
 }
 
 .experience-note .background-label {
@@ -138,9 +138,9 @@
 
   margin: 0;
 
-  color: #8b8b90;
+  color: var(--text-secondary);
 
-  font-size: 0.9rem;
+  font-size: 1rem;
   line-height: 1.8;
 }
 
@@ -154,7 +154,7 @@
 }
 
 .profile-list {
-  border-top: 1px solid #2a2a2e;
+  border-top: 1px solid var(--border-soft);
 }
 
 .profile-row {
@@ -167,7 +167,7 @@
 
   gap: 28px;
 
-  border-bottom: 1px solid #2a2a2e;
+  border-bottom: 1px solid var(--border-soft);
 }
 
 .profile-row > span {
@@ -175,15 +175,15 @@
   font-size: 0.66rem;
   letter-spacing: 0.08em;
 
-  color: #66666b;
+  color: var(--text-muted);
 }
 
 .profile-row p {
   margin: 0;
 
-  color: #b0b0b5;
+  color: var(--text-secondary);
 
-  font-size: 0.92rem;
+  font-size: 0.98rem;
   line-height: 1.7;
 }
 
@@ -230,7 +230,7 @@
     padding-bottom: 60px;
 
     border-right: none;
-    border-bottom: 1px solid #29292c;
+    border-bottom: 1px solid var(--border-soft);
   }
 }
 
@@ -262,7 +262,7 @@
   }
 
   .education-description {
-    font-size: 0.84rem;
+    font-size: 0.96rem;
   }
 
   .experience-note {
@@ -285,7 +285,7 @@
   }
 
   .profile-row p {
-    font-size: 0.86rem;
+    font-size: 0.96rem;
   }
 }
 

@@ -1,8 +1,9 @@
 .contact-section {
   padding: 130px 48px;
 
-  background: #111113;
+  background: var(--background);
   color: #f2f2ed;
+  border-bottom: 1px solid var(--border-soft);
 }
 
 .contact-inner {
@@ -21,7 +22,7 @@
   font-size: 0.66rem;
   letter-spacing: 0.14em;
 
-  color: #5f5f64;
+  color: var(--text-muted);
 }
 
 .contact-main {
@@ -65,7 +66,7 @@
 
   margin: 46px 0 0;
 
-  color: #85858a;
+  color: var(--text-secondary);
 
   font-size: 1rem;
   line-height: 1.8;
@@ -95,7 +96,7 @@
   align-items: center;
   justify-content: space-between;
 
-  color: #a2a2a7;
+  color: var(--text-secondary);
   text-decoration: none;
 
   border-right: 1px solid #303034;
@@ -110,11 +111,11 @@
 }
 
 .contact-links a > span:first-child {
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 .contact-links a > span:last-child {
-  color: #55555a;
+  color: var(--text-muted);
 
   transition:
     color 180ms ease,
