@@ -83,7 +83,11 @@ function SelectedWork() {
 
 function ProjectEntry({ project }) {
   return (
-    <article className={`project-entry project-${project.variant}`}>
+    <Link
+      to={project.route}
+      className={`project-entry project-${project.variant}`}
+      aria-label={`View ${project.title} case study`}
+    >
       <div className="project-index">
         <span>{project.number}</span>
       </div>
@@ -113,13 +117,13 @@ function ProjectEntry({ project }) {
             ))}
           </div>
 
-          <Link to={project.route} className="project-link">
+          <span className="project-link">
             View Case
             <span aria-hidden="true">↗</span>
-          </Link>
+          </span>
         </div>
       </div>
-    </article>
+    </Link>
   );
 }
 
